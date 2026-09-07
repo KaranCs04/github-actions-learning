@@ -4,10 +4,10 @@ on:  [push,workflow_dispatch]
 
 jobs:
     greeting:
-        runs-on:  ubuntu-runner
+        runs-on:  ubuntu-latest
         steps:
-            -name:  Starting my greeting workflow
-             run:  echo "Starting my greeting workflow"
+            - name:  Starting my greeting workflow
+              run:  echo "Starting my greeting workflow"
 
-            -name:  My name and today's data
-             run:  echo "Karan Singh and $(date)"
+            - name:  My name and today's data
+              srun:  echo "Karan Singh and $(date)"
