@@ -1,0 +1,12 @@
+name: Hello Workflow
+
+on: [push]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a message
+        run: echo "GitHub Actions is working"
+      - name: Run a Node.js command
+        run: node -e "console.log('Hello from Node inside GitHub Actions')"
