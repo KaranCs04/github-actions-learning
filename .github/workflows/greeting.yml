@@ -1,13 +1,13 @@
-name:  Greeting Workflow
+name: Greeting Workflow
 
-on:  [push,workflow_dispatch]
+on: [push, workflow_dispatch]
 
 jobs:
-    greeting:
-        runs-on:  ubuntu-latest
-        steps:
-            - name:  Starting my greeting workflow
-              run:  echo "Starting my greeting workflow"
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Starting message
+        run: echo "Starting my greeting workflow"
 
-            - name:  My name and today's data
-              srun:  echo "Karan Singh and $(date)"
+      - name: Print name and date
+        run: echo "Karan Singh and today is $(date)"
