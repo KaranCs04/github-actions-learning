@@ -1,0 +1,32 @@
+name: PR Checks
+
+on:
+  pull_request:                                    # ← what trigger?
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'package.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      
+      - name: Install
+        run: npm ci
+      
+      - name: Run tests
+        run: npm test
+      
+      - name: Comment on PR
+        run: echo "✅ All checks passed for PR!"
