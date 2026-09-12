@@ -1,0 +1,8 @@
+- name: Upload test results
+  uses: actions/upload-artifact@v4
+  if: always()
+  with:
+    name: test-results              # what to call the artifact
+    path: playwright-report/        # what folder/files to save
+    retention-days: 30              # how long to keep it (max 90)
+    if-no-files-found: warn         # what to do if path is empty
